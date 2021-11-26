@@ -7,18 +7,17 @@
 
 using std::string;
 
-class Katalog {
+class Katalog : virtual public Osoba{
 private:
     string nazwa;
     std::vector <Osoba> osoby;
 public:
-
-    void dodaj(Osoba *osoba);
+    Katalog(string nazwa);
+    void dodaj(Osoba osoba);
     void odczytaj();
-    void aktualizuj();
-    void usun();
+    void aktualizuj(int index, Osoba osoba);
+    void usun(int index);
 
 };
-
 
 #endif //PROJEKT_PO_KATALOG_H

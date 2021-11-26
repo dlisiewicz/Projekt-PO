@@ -2,16 +2,19 @@
 #define PROJEKT_PO_MENU_H
 #include "Katalog.h"
 
-class Menu {
+class Menu: virtual public Osoba{
 private:
     bool loop = true;
     int wybor;
 public:
     void petla();
-    void dodawanie(Katalog katalog);
-    void odczytywanie(Katalog katalog);
+    void dodawanie();
+    void odczytywanie();
     void aktualizowanie();
     void usuwanie();
+
+    void dodawanie_zawodnikow();
+    void dodawanie_pracownikow();
 };
 
 
