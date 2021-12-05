@@ -1,8 +1,12 @@
 #ifndef PROJEKT_PO_MENU_H
 #define PROJEKT_PO_MENU_H
 #include "Katalog.h"
+#include "Osoba.h"
+#include "Katalog.h"
+#include "Zawodnik.h"
+#include "Pracownik.h"
 
-class Menu: virtual public Osoba{
+class Menu{
 private:
     bool loop = true;
     int wybor;

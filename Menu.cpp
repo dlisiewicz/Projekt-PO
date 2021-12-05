@@ -1,12 +1,8 @@
 #include "Menu.h"
-#include "Osoba.h"
-#include "Katalog.h"
-#include "Zawodnik.h"
-#include "Pracownik.h"
 #include <iostream>
 
-Katalog k1("zawodnicy");
-Katalog k2("Pracownicy");
+Katalog<Zawodnik> k1("Zawodnicy");
+Katalog<Pracownik> k2("Pracownicy");
 
 void Menu::petla() {
     while(loop)
@@ -35,6 +31,9 @@ void Menu::petla() {
                 loop = false;
                 break;
             }
+            default:{
+                std::cout<<"Niepoprawna wartosc"<<std::endl;
+            }
         }
     }
 }
@@ -53,8 +52,15 @@ void Menu::dodawanie() {
             dodawanie_pracownikow();
             break;
         };
+        default:{
+            std::cout<<"Niepoprawna wartosc"<<std::endl;
+        }
     };
 };
+
+std::string tmp;
+int tmpWiek;
+float tmpPensja;
 
 void Menu::dodawanie_zawodnikow() {
     Zawodnik z1;
@@ -68,11 +74,26 @@ void Menu::dodawanie_zawodnikow() {
     std::cin>>tmp;
     z1.setNazwisko(tmp);
 
+    std::cout<<"Podaj wiek"<<std::endl;
+    std::cin>>tmpWiek;
+    z1.setWiek(tmpWiek);
+
+    std::cout<<"Podaj miesieczna pensje"<<std::endl;
+    std::cin>>tmpPensja;
+    z1.setMiesiecznaPensja(tmpPensja);
+
+    std::cout<<"Podaj wartosc rynkowa"<<std::endl;
+    std::cin>>tmpPensja;
+    z1.setwatoscRynkowa(tmpPensja);
+
+    std::cout<<"Podaj nr zawodnika"<<std::endl;
+    std::cin>>tmpWiek;
+    z1.setnrZawodnika(tmpWiek);
+
     k1.dodaj(z1);
 };
 void Menu::dodawanie_pracownikow() {
     Pracownik p1;
-    std::string tmp;
 
     std::cout<<"Podaj imie"<<std::endl;
     std::cin>>tmp;
@@ -82,6 +103,18 @@ void Menu::dodawanie_pracownikow() {
     std::cin>>tmp;
     p1.setNazwisko(tmp);
 
+    std::cout<<"Podaj wiek"<<std::endl;
+    std::cin>>tmpWiek;
+    p1.setWiek(tmpWiek);
+
+    std::cout<<"Podaj miesieczna pensje"<<std::endl;
+    std::cin>>tmpPensja;
+    p1.setMiesiecznaPensja(tmpPensja);
+
+    std::cout<<"Podaj stanowisko"<<std::endl;
+    std::cin>>tmp;
+    p1.setStanowisko(tmp);
+
     k2.dodaj(p1);
 };
 void Menu::odczytywanie() {
@@ -90,13 +123,18 @@ void Menu::odczytywanie() {
     std::cin>>wybor;
     switch(wybor) {
         case 1:{
+            std::cout<<"Imie Nazwisko Wiek miesiecznaPensja wartoscRynkowa nrZawodnika"<<std::endl;
             k1.odczytaj();
             break;
         };
         case 2:{
+            std::cout<<"Imie Nazwisko Wiek miesiecznaPensja Stanowisko"<<std::endl;
             k2.odczytaj();
             break;
         };
+        default:{
+            std::cout<<"Niepoprawna wartosc"<<std::endl;
+        }
     };
 
 }
@@ -104,23 +142,71 @@ void Menu::aktualizowanie() {
     std::cout<<"Zaktualizuj:"<<std::endl;
     std::cout<<"1-zawodnicy 2-pracownicy"<<std::endl;
     std::cin>>wybor;
+    int tmpI;
     switch(wybor) {
         case 1:{
             Zawodnik z1;
-            int tmp;
             std::cout<<"Podaj nr zawodnika do zaktualizowania"<<std::endl;
+            std::cin>>tmpI;
+
+            std::cout<<"Podaj imie"<<std::endl;
             std::cin>>tmp;
-            k1.aktualizuj(tmp, z1);
+            z1.setImie(tmp);
+
+            std::cout<<"Podaj nazwisko"<<std::endl;
+            std::cin>>tmp;
+            z1.setNazwisko(tmp);
+
+            std::cout<<"Podaj wiek"<<std::endl;
+            std::cin>>tmpWiek;
+            z1.setWiek(tmpWiek);
+
+            std::cout<<"Podaj miesieczna pensje"<<std::endl;
+            std::cin>>tmpPensja;
+            z1.setMiesiecznaPensja(tmpPensja);
+
+            std::cout<<"Podaj wartosc rynkowa"<<std::endl;
+            std::cin>>tmpPensja;
+            z1.setwatoscRynkowa(tmpPensja);
+
+            std::cout<<"Podaj nr zawodnika"<<std::endl;
+            std::cin>>tmpWiek;
+            z1.setnrZawodnika(tmpWiek);
+
+            k1.aktualizuj(tmpI, z1);
             break;
         };
         case 2:{
             Pracownik p1;
-            int tmp;
             std::cout<<"Podaj nr pracownika do zaktualizowania"<<std::endl;
+            std::cin>>tmpI;
+
+            std::cout<<"Podaj imie"<<std::endl;
             std::cin>>tmp;
-            k2.aktualizuj(tmp, p1);
+            p1.setImie(tmp);
+
+            std::cout<<"Podaj nazwisko"<<std::endl;
+            std::cin>>tmp;
+            p1.setNazwisko(tmp);
+
+            std::cout<<"Podaj wiek"<<std::endl;
+            std::cin>>tmpWiek;
+            p1.setWiek(tmpWiek);
+
+            std::cout<<"Podaj miesieczna pensje"<<std::endl;
+            std::cin>>tmpPensja;
+            p1.setMiesiecznaPensja(tmpPensja);
+
+            std::cout<<"Podaj stanowisko"<<std::endl;
+            std::cin>>tmp;
+            p1.setStanowisko(tmp);
+
+            k2.aktualizuj(tmpI, p1);
             break;
         };
+        default:{
+            std::cout<<"Niepoprawna wartosc"<<std::endl;
+        }
     };
 }
 void Menu::usuwanie() {
@@ -142,6 +228,9 @@ void Menu::usuwanie() {
             k2.usun(tmp);
             break;
         };
+        default:{
+            std::cout<<"Niepoprawna wartosc"<<std::endl;
+        }
     };
 
 }

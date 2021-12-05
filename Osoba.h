@@ -8,7 +8,7 @@ private:
     string imie;
     string nazwisko;
     int wiek;
-    float miesiecznaPesja;
+    float miesiecznaPensja;
 public:
 
 
@@ -21,8 +21,8 @@ public:
     void setWiek(int wiek);
     int getWiek();
 
-    void setMiesiecznaPesja(float miesiecznaPesja);
-    float getmiesiecznaPesja();
+    void setMiesiecznaPensja(float miesiecznaPensja);
+    float getmiesiecznaPensja();
 };
 
 

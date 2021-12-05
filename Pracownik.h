@@ -3,7 +3,13 @@
 #include "Osoba.h"
 
 class Pracownik: virtual public Osoba{
-    string obowiazki;
+
+private:
+    string stanowisko;
+public:
+    void setStanowisko(string stanowisko);
+    string getStanowisko();
+    void showAll();
 };
 
 

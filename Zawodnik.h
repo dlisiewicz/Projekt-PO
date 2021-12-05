@@ -5,7 +5,13 @@
 class Zawodnik: virtual public Osoba{
 private:
     float watoscRynkowa;
-
+    int nrZawodnika;
+public:
+    void setwatoscRynkowa(float watoscRynkowa);
+    float getwatoscRynkowa();
+    void setnrZawodnika(int watoscRynkowa);
+    int getnrZawodnika();
+    void showAll();
 };
 
 

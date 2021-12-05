@@ -25,11 +25,11 @@ int Osoba::getWiek()
     return wiek;
 };
 
-void Osoba::setMiesiecznaPesja(float MiesiecznaPesja)
+void Osoba::setMiesiecznaPensja(float miesiecznaPensja)
 {
-    this->miesiecznaPesja=miesiecznaPesja;
+    this->miesiecznaPensja=miesiecznaPensja;
 };
-float Osoba::getmiesiecznaPesja()
+float Osoba::getmiesiecznaPensja()
 {
-    return miesiecznaPesja;
+    return miesiecznaPensja;
 };
